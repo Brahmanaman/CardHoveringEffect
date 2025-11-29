@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(36, 3, 36);
+}
+
+@property --boxshadow {
+    syntax: "<color>";
+    initial-value: rgb(228, 79, 104);
+    inherits: false;
+}
+
+@property --borderColor {
+    syntax: "<color>";
+    initial-value: white;
+    inherits: false;
+}
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+.box {
+    border-radius: 10px;
+    height: 300px;
+    width: 200px;
+    box-shadow: 0 0 0px 0px var(--boxshadow);
+    background: linear-gradient(rgb(36, 3, 36)) padding-box,
+        conic-gradient(from var(--rotate), rgb(36, 3, 36), rgb(252, 9, 49), rgb(36, 3, 36)) border-box;
+    padding: 0 5px 5px 5px;
+    border: 0px solid rgba(240, 61, 91, 0);
+
+    animation: animateBorder 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    transition: all 0.3s;
+
+
+}
+
+.box:hover {
+    box-shadow: 0 0 30px 2px var(--boxshadow);
+    border: 5px solid rgba(240, 61, 91, 0);
+    animation-play-state: running;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: drop-shadow(0 0 15px rgb(165, 17, 108));
+}
+
+@keyframes animateBorder {
+    from {
+        --rotate: 0deg;
+    }
+
+    to {
+        --rotate: 360deg;
+    }
+}
